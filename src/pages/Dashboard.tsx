@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLoading, IonButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonLoading, IonButton,IonImg } from '@ionic/react';
 import { useSelector } from 'react-redux';
 import { logoutUser } from '../firebaseConfig'
 import { useHistory } from 'react-router';
@@ -21,13 +21,17 @@ const Dashboard: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Dashboard</IonTitle>
+                    <IonTitle>Usuario</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
+                <IonImg src='assets/icon/iconnew.png' ></IonImg>
                 <IonLoading message='Saliendo...' duration={0} isOpen={busy} ></IonLoading>
                 <p>Hola Usuario {email} </p>
-                <IonButton onClick={logout} >Salir</IonButton>
+                <IonButton routerLink="/EntraCurso" expand="block" color="secondary">Unirse a un Curso</IonButton>
+                <IonButton routerLink="/Curso" expand="block" color="secondary">Crear Curso</IonButton>
+                <IonButton onClick={logout} expand="block" color="tertiary">Salir</IonButton>
+                
             </IonContent>
         </IonPage>
     );

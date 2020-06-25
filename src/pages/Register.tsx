@@ -29,7 +29,7 @@ const Register: React.FC = () => {
         const res = await registerUser(username, email, password)
 
         if (res) {
-            toast('Usuario resgistrado exitosamete')
+            toast('Usuario resgistrado exitosamente')
         }
 
         setBusy(false)
@@ -44,6 +44,7 @@ const Register: React.FC = () => {
             </IonHeader>
             <IonLoading message="Registro en progeso por favor espere..." duration={0} isOpen={busy} />
             <IonContent className="ion-padding">
+            <IonLabel color="tertiary" > Ingrese su Nombre: </IonLabel>
                 <IonInput type="text" placeholder="nombre de usuario" onIonChange={(e: any) => setUsername(e.target.value)}></IonInput>
                 <IonLabel color="tertiary" > Ingrese su correo: </IonLabel>
                 <IonInput type="text" placeholder="correo" onIonChange={(e: any) => setEmail(e.target.value)}></IonInput>

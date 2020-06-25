@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import Menu from './components/Menu';
 import {
   IonApp,
   IonButton,
@@ -7,6 +8,7 @@ import {
   IonInput,
   IonItem,
   IonItemDivider,
+  IonSplitPane,
   IonLabel,
   IonList,
   IonRouterOutlet,
@@ -19,6 +21,9 @@ import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Curso from './pages/Curso';
+import EntraCurso from './pages/EntraCurso';
+import Materias from './pages/Materias';
 /*import { ellipse, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -51,12 +56,19 @@ import { useDispatch } from 'react-redux';
 const RoutingSystem: React.FC = () => {
   return (
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/" component={Home} exact={true} />
-        <Route path="/login" component={Login} exact={true} />
-        <Route path="/register" component={Register} exact={true} />
-        <Route path="/dashborad" component={Dashboard} exact={true} />
-      </IonRouterOutlet>
+      <IonSplitPane contentId="main">
+          <Menu />
+          <IonRouterOutlet id="main">
+            <Route path="/" component={Home} exact={true} />
+            
+            <Route path="/login" component={Login} exact={true} />
+            <Route path="/register" component={Register} exact={true} />
+            <Route path="/dashborad" component={Dashboard} exact={true} />
+            <Route path="/curso" component={Curso} exact={true} />
+            <Route path="/EntraCurso" component={EntraCurso} exact={true} />
+            <Route path="/Materias" component={Materias} exact={true} />
+          </IonRouterOutlet>
+        </IonSplitPane>      
     </IonReactRouter>
   )
 }
